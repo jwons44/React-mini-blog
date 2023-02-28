@@ -8,6 +8,7 @@ const Wrapper = styled.div`
     align-items: flex-start;
     justify-content: center;
 
+    //마지막 요소가 아니면 margin-bottom 주기
     & > * {
         :not(:last-child) {
             margin-bottom: 16px;

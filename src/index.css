@@ -11,3 +11,34 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* ================ 디자인 초기화 ================ */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body, html {
+  width: 100%;
+  min-width: 320px;
+  height: auto;
+  min-height: 100%;
+  font-family: "Nanum Gothic", sans-serif;
+}
+ul, ol, dl, li {
+  list-style: none; 
+}
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+img {
+  max-width: 100%; 
+  height: auto; 
+}
+a {
+  color: black;
+  border: none;
+  text-decoration: none;
+}
