@@ -20,14 +20,14 @@ const Wrapper = styled.div`
     justify-content: center;
 
     .wrap {
-        width: 80%;
+        width: 70%;
         display: flex;
         justify-content: center;
     }
 `;
 
 const Container = styled.div`
-    width: 1035px;
+    width: 1000px;
     /* max-width: 720px; */
 
     & > * {
@@ -35,9 +35,10 @@ const Container = styled.div`
             margin-bottom: 16px;
         }
     }
+
     .title-wrap {
         display: flex;
-        align-items: center;
+        align-items: flex-end;
         justify-content: space-between;
     }
     .search-wrap {

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Wrapper = styled.div`
     border-left: 1px solid #ced4da ;
     padding: 0 1.6em;
-    width: 345px;
+    width: 200px;
     margin-left: 2em;
     display: flex;
     /* justify-content: center; */

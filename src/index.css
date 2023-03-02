@@ -13,11 +13,11 @@ code {
 }
 
 /* ================ 디자인 초기화 ================ */
-* {
+/* * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-}
+} */
 body, html {
   width: 100%;
   min-width: 320px;

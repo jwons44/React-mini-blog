@@ -6,8 +6,8 @@ const StyledPageTitleWrap = styled.div`
 
 
 
-const TitleH1 = styled.h1`
-    
+const TitleH1 = styled.div`
+    font-size: 2.8em;
 `
 
 function PageTitle(props) {

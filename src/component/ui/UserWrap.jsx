@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import data from '../../data.json';
 
 
 const Userwrap = styled.div`
@@ -28,12 +27,15 @@ const Userwrap = styled.div`
     white-space: nowrap;
   }
 `;
+
 function UserWrap(props) {
     const { post, onClick } = props;
     return (
         <Userwrap onClick={onClick}>
             <div className="user-img"></div>
-            <div className="user-name">{post.user}</div>
+            <div className="user-name">
+              {post.user == null ? post :post.user}           
+            </div>
         </Userwrap>
     );
 }
