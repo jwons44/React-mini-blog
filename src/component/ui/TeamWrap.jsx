@@ -6,7 +6,7 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0.5em 0 0.5em 0;
+    margin: 0.8em 10px 0.8em 10px;
 
     .team-img-wrap {
         display: flex;
@@ -41,12 +41,12 @@ const Wrapper = styled.div`
     }
 
     .team-site-button {
-        width: 75px;
-        height: 30px;
-        border-radius: 0.8em;
+        width: 80px;
+        height: 35px;
         background: white;
         /* color: white; */
         border: 2px solid #37b24d;
+        border-radius: 2em;
         cursor: pointer;
     }
 

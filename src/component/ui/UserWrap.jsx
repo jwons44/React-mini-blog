@@ -32,7 +32,9 @@ function UserWrap(props) {
     const { post, onClick } = props;
     return (
         <Userwrap onClick={onClick}>
-            <div className="user-img"></div>
+            <div className="user-img">
+              <img src="/img/user.png" alt="user" />
+            </div>
             <div className="user-name">
               {post.user == null ? post :post.user}           
             </div>

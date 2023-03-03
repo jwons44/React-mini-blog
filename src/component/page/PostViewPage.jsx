@@ -8,19 +8,26 @@ import TextInput from "../ui/TextInput";
 import UserWrap from "../ui/UserWrap";
 import TagListItem from "../list/TagListItem";
 import TagList from "../list/TagList";
+import RightBar from "../list/RightBar";
 
 const Wrapper = styled.div`
     padding: 16px;
-    width: calc(100% - 32px);
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    /* flex-direction: column; */
+    /* align-items: center; */
     justify-content: center;
+
+    .wrap {
+        width: 70%;
+        display: flex;
+        justify-content: center;
+    }
 `;
 
 const Container = styled.div`
-    width: 100%;
-    max-width: 720px;
+    width: 1000px;
+    /* max-width: 720px; */
 
     & > * {
         :not(:last-child){
@@ -79,58 +86,52 @@ function PostViewPage(props) {
 
     return (
         <Wrapper>
-            <Container>
-                <PostContainer>
-                    <TitleText>{post.title}</TitleText>
-                    <UserWrap post={post} />
-                    <ContentText>
-                        {post.content}
-                        <TagList 
-                            tags={post.tags}
-                        />
-                    </ContentText>
-                </PostContainer>
-
-                <CommentLabel>
-                    <h3>댓글 {post.comments.length}</h3>
-                    <Button
-                        title="댓글 작성"
-                        background="true"
-                        onClick={() => {
-                            { setCommentModal(!commentModal) }
-                            setComment("");
-                        }}
-                    />
-                </CommentLabel>
-                {commentModal === true ?
-                    <CommentModal>
-                        <TextInput
-                            height={100}
-                            value={comment}
-                            onChange={(event) => {
-                                setComment(event.target.value);
+            <div className="wrap">
+                <Container>
+                    <PostContainer>
+                        <TitleText>{post.title}</TitleText>
+                        <UserWrap post={post} />
+                        <ContentText>
+                            {post.content}
+                            <TagList
+                                tags={post.tags}
+                            />
+                        </ContentText>
+                    </PostContainer>
+                    <CommentLabel>
+                        <h3>댓글 {post.comments.length}</h3>
+                        <Button
+                            title="댓글 작성"
+                            background="true"
+                            onClick={() => {
+                                { setCommentModal(!commentModal) }
+                                setComment("");
                             }}
                         />
-                    </CommentModal>
-                    : null}
-
-
-
-
-
-                <CommentList comments={post.comments} />
-
-                <div className="button-wrap">
-
-                    <Button
-                        title="뒤로 가기"
-                        onClick={() => {
-                            navigate("/");
-                        }}
-                    />
-                </div>
-                
-            </Container>
+                    </CommentLabel>
+                    {commentModal === true ?
+                        <CommentModal>
+                            <TextInput
+                                height={100}
+                                value={comment}
+                                onChange={(event) => {
+                                    setComment(event.target.value);
+                                }}
+                            />
+                        </CommentModal>
+                        : null}
+                    <CommentList comments={post.comments} />
+                    <div className="button-wrap">
+                        <Button
+                            title="뒤로 가기"
+                            onClick={() => {
+                                navigate("/");
+                            }}
+                        />
+                    </div>
+                </Container>
+                    <RightBar reply={true}/>
+            </div>
         </Wrapper>
     )
 }

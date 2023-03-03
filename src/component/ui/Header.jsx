@@ -2,12 +2,14 @@ import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faUser, faTimes, faMagnifyingGlass, faAngleUp, faAngleDown } from "@fortawesome/free-solid-svg-icons";
-import { setSelectionRange } from "@testing-library/user-event/dist/utils";
 import DropdownMenu from "./DropdownMenu";
-import useDetectClose from "../../hooks/useDetectClose";
-import UserWrap from "../ui/UserWrap";
-import TeamWrap from "./TeamWrap";
 import UserInfoWrap from "./UserInfoWrap";
+
+const Wrapper = styled.div`
+    position: sticky;
+    top: 0;
+    background: white;
+`;
 
 const HeaderWrap = styled.div`
   max-width: 1380px;
@@ -113,6 +115,11 @@ a {
     color: #adb5bd;
   }
 
+  ul.header__right {
+    padding: 0;
+
+  }
+
   .header__right .header-join-wrap {
     align-items: center;
     display: flex;
@@ -124,36 +131,35 @@ a {
 }
 
 
-.header__right .team-logo-wrap {
-    border-radius: 2em;
-    left: 0;
+
+
+.header__right .team-logo {
     position: absolute;
     top: -0.6em;
-    width: 4em;
-    height: 2.5em;
+    left: 0;
+    height: 2.8em;
+    width: 2.8em;
     margin: 0;
 }
 
-.header__right .team-logo {
-    background-image: url("img/team.png");
-    background-size: contain;
-    height: 2.5em;
-    width: 2.5em;
-    margin: 0;
-    cursor: pointer;
+.header__right .team-logo img {
+  width: 100%;
+  height: 100%;
 }
 
 
 .header__right .user-logo {
-    background-color: #f6dbec;
-    border-radius: 2em;
-    left: 1.5em;
     position: absolute;
+    left: 1.5em;
     top: -0.6em;
     height: 2.8em;
     width: 2.8em;
     margin: 0;
-    cursor: pointer;
+}
+
+.header__right .user-logo img {
+  width: 100%;
+  height: 100%;
 }
 
 .header__right li {
@@ -238,76 +244,64 @@ function Header() {
   const [userToggled, setUserToggled] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
 
-  const [userInfoView, setUserInfoView] = useState(false);
 
 
   return (
-    <HeaderWrap isToggled={isToggled} userToggled={userToggled} serchToggled={searchToggled}>
-      {/* 햄버거 버튼(bar) */}
-      <div
-        className="toggle"
-        onClick={() => {
-          setIsToggled(!isToggled);
-        }}
-      >
-        <FontAwesomeIcon icon={!isToggled ? faBars : faTimes} />
-      </div>
-
-      {/* 로고 */}
-      <div className="header__logo">
-        <a href="#"><img src="img/1.png" alt="matchup-logo" /></a>
-      </div>
-
-
-
-      
-
-      <DropdownMenu />
-
-
-      <div className="header__right-wrap">
-        {/* 검색 버튼*/}
-        <div className="header-search" onClick={() => {
-          setSearchToggled(!searchToggled);
-        }}>
-          <FontAwesomeIcon icon={!searchToggled ? faMagnifyingGlass : faMagnifyingGlass} />
-          <input type="text" placeholder="Search..." onChange={(e) => {
-            setSearchTerm(e.target.value);
-          }}
-          />
-        </div>
-        {/* User 버튼 */}
+    <Wrapper>
+      <HeaderWrap isToggled={isToggled} userToggled={userToggled} serchToggled={searchToggled}>
+        {/* 햄버거 버튼(bar) */}
         <div
-          className="user"
+          className="toggle"
           onClick={() => {
-            setUserToggled(!userToggled);
+            setIsToggled(!isToggled);
           }}
         >
-          <FontAwesomeIcon icon={!userToggled ? faUser : faTimes} />
+          <FontAwesomeIcon icon={!isToggled ? faBars : faTimes} />
         </div>
-      </div>
+        {/* 로고 */}
+        <div className="header__logo">
+          <a href="#"><img src="img/1.png" alt="matchup-logo" /></a>
+        </div>
 
-      {/* User 메뉴 리스트 */}
-      <ul className="header__right">
-        <li className="header-join-wrap">
-          <div className="team-logo-wrap">
-            <div className="team-logo"></div>
-          </div>
-          <div className="user-logo"></div>
-        </li>
-        <li><a href="">로그인</a></li>
-        <li className="user-info-wrap">
-          <div onClick={() => {
-            setUserInfoView(!userInfoView)
+        <DropdownMenu />
+        <div className="header__right-wrap">
+          {/* 검색 버튼*/}
+          <div className="header-search" onClick={() => {
+            setSearchToggled(!searchToggled);
           }}>
-            {userInfoView ? <FontAwesomeIcon icon={faAngleUp} /> : <FontAwesomeIcon icon={faAngleDown} />}
-            {userInfoView && 
-              <UserInfoWrap />
-            }
+            <FontAwesomeIcon icon={!searchToggled ? faMagnifyingGlass : faMagnifyingGlass} />
+            <input type="text" placeholder="Search..." onChange={(e) => {
+              setSearchTerm(e.target.value);
+            }}
+            />
           </div>
-        </li>
-      </ul>
-    </HeaderWrap>
+          {/* User 버튼 */}
+          <div
+            className="user"
+            onClick={() => {
+              setUserToggled(!userToggled);
+            }}
+          >
+            <FontAwesomeIcon icon={!userToggled ? faUser : faTimes} />
+          </div>
+        </div>
+        {/* User 메뉴 리스트 */}
+        <ul className="header__right">
+          <li className="header-join-wrap">
+              <div className="team-logo">
+                <img src="/img/team.png" alt="team" />
+              </div>
+            <div className="user-logo">
+              <img src="/img/user.png" alt="user" />
+            </div>
+          </li>
+          <li><a href="">로그인</a></li>
+          <li className="user-info-wrap">
+            <UserInfoWrap />
+          </li>
+        </ul>
+      </HeaderWrap>
+    </Wrapper>
   );
 }
 

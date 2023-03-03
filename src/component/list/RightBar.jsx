@@ -1,5 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import WriteBoardListItem from './WriteBoardListItem';
+import data from '../../data.json';
+import { useNavigate } from 'react-router-dom';
+import TagList from "../list/TagList";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleArrowRight, faCircleArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 const Wrapper = styled.div`
     border-left: 1px solid #ced4da ;
@@ -7,7 +13,7 @@ const Wrapper = styled.div`
     width: 200px;
     margin-left: 2em;
     display: flex;
-    /* justify-content: center; */
+    flex-direction: column;
 `;
 
 const UserWrap = styled.div`
@@ -32,17 +38,109 @@ const UserWrap = styled.div`
     line-height: 1.5;
     white-space: nowrap;
   }
-`
+`;
+
+const WriteBoardListWrap = styled.div`
+`;
+
+const TopKeyWordWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  .tags-wrap {
+  }
+
+  .tag {
+    display: flex;
+    margin-bottom: 10px;
+  }
+
+  .tag-content {
+    border: 1px solid #F1F3F5;
+    border-radius: 3em;
+    background: #F1F3F5;
+    padding: 5px 10px 5px 10px;
+    font-size: 0.9em;
+  }
+`;
+
+const ReplyWrap = styled.div`
+  
+  .pageMoveBtn-wrap {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pre-pageBtn,
+  .next-pageBtn {
+    width: 100%;
+    height: 5em;
+    font-size: 1.5em;
+  }
+`;
 
 function RightBar(props) {
-    return (
-        <Wrapper>
-            <UserWrap>
-                <div className="user-img"></div>
-                <div className="user-name">kim1234@nave.com</div>
-            </UserWrap>
-        </Wrapper>
-    );
+  const { reply } = props;
+  const navigate = useNavigate();
+  const tags = data[0].tags;
+
+
+
+  return (
+    <Wrapper>
+      <UserWrap>
+        <div className="user-img">
+          <img src="/img/user.png" alt="user" />
+        </div>
+        <div className="user-name">kim1234@nave.com</div>
+      </UserWrap>
+
+
+      {reply ?
+        <ReplyWrap>
+          <div className="pageMoveBtn-wrap">
+            <button className='pre-pageBtn'> <FontAwesomeIcon icon={faCircleArrowLeft} />이전 글</button>
+            <button className='next-pageBtn'> <FontAwesomeIcon icon={faCircleArrowRight} /> 다음 글 </button>
+          </div>
+        </ReplyWrap>      
+      : null}
+
+
+      {/* 내가 쓴글 리스트 */}
+      <WriteBoardListWrap>
+        <h3>내가 쓴글</h3>
+
+        {data.map((post) => {
+          return (
+            <WriteBoardListItem
+              key={post.id}
+              post={post}
+              onClick={(item) => {
+                navigate(`/post/${item.id}`);
+              }}
+            />
+          )
+        })}
+      </WriteBoardListWrap>
+
+      <TopKeyWordWrap>
+        <h3>TOP KEYWORDS</h3>
+        <div className='tags-wrap'>
+          {tags.map((tag) => {
+            return (
+              <div className='tag'
+                key={tag.id}
+                tag={tag}
+              >
+                <div className="tag-content">{tag.content}</div>
+              </div>
+            )
+          })}
+        </div>
+      </TopKeyWordWrap>
+
+    </Wrapper>
+  );
 }
 
 export default RightBar;
