@@ -89,7 +89,7 @@ const DropdownMenu = () => {
         <Menu isDropped={boardIsOpen}>
           <Ul>
             <Li>
-              <LinkWrapper href="/">자유게시판</LinkWrapper>
+              <LinkWrapper href="/post">자유게시판</LinkWrapper>
             </Li>
             <Li>
               <LinkWrapper href="#2-2">공지사항</LinkWrapper>

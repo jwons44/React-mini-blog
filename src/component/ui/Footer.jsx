@@ -12,6 +12,7 @@ const FooterWrap = styled.div`
     border-top: 1px solid #ced4da;
     height: 6.25em;
     padding: 2em 0 1.5em 0;
+    background: white;
 
     .footer-logo-wrap {
         width: 10em;

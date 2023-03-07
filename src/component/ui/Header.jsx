@@ -9,10 +9,11 @@ const Wrapper = styled.div`
     position: sticky;
     top: 0;
     background: white;
+    z-index: 1;
 `;
 
 const HeaderWrap = styled.div`
-  max-width: 1380px;
+  width: 1380px;
   margin: 0 auto;
   display: flex;
   justify-content: space-evenly;
@@ -260,7 +261,7 @@ function Header() {
         </div>
         {/* 로고 */}
         <div className="header__logo">
-          <a href="#"><img src="img/1.png" alt="matchup-logo" /></a>
+          <a href="/"><img src="img/1.png" alt="matchup-logo" /></a>
         </div>
 
         <DropdownMenu />

@@ -4,15 +4,17 @@ import UserWrap from "../ui/UserWrap";
 
 const Wrapper = styled.div`
     width: calc(100% - 32px);
-    padding: 16px;
+    padding: 0.8em;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    border-top: 1px solid gray;
+    border-top: 1px solid #ced4da;
+    
     cursor: pointer;
     :hover {
-        background: lightgray;
+        box-shadow: 0.3em 0.3em 2em rgba(0, 0, 0, 0.150000006);
+        border-radius: 2em;
     }
 
     
@@ -46,7 +48,7 @@ const TitleText = styled.div`
 
     .post-title {
         font-weight: bold;
-        margin: 1em 0 1em 0;
+        margin: 0.5em 0 0.5em 0;
     }
 
     .post-content {
@@ -55,7 +57,7 @@ const TitleText = styled.div`
     }
 
     .post-regdate {
-        margin-top: 1em;
+        margin-top: 0.5em;
         font-size: 0.8em;
         color: lightgray;
     }

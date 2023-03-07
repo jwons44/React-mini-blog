@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { faAngleRight, faAnglesRight, faAngleLeft, faAnglesLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Pagination from 'react-js-pagination';
+import Button from './Button';
+import { useNavigate } from 'react-router-dom';
 const StyledPageButton = styled.div`
     display: flex;
     justify-content: center;
@@ -44,11 +46,21 @@ const StyledPageButton = styled.div`
   ul.pagination li a.active {
     color: white;
   }
+
+  Button {
+  }
+
+  .wrap {
+    display: flex;
+    justify-content: flex-end;
+  }
   
 `;
 
 function PageButton(props) {
     const [page, setPage] = useState(1);
+
+    const navigate = useNavigate();
 
     const handlePageChange = (page) => {
         setPage(page);

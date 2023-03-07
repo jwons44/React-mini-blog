@@ -3,9 +3,7 @@ import styled from 'styled-components';
 import WriteBoardListItem from './WriteBoardListItem';
 import data from '../../data.json';
 import { useNavigate } from 'react-router-dom';
-import TagList from "../list/TagList";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleArrowRight, faCircleArrowLeft } from '@fortawesome/free-solid-svg-icons';
+
 
 const Wrapper = styled.div`
     border-left: 1px solid #ced4da ;
@@ -64,20 +62,7 @@ const TopKeyWordWrap = styled.div`
   }
 `;
 
-const ReplyWrap = styled.div`
-  
-  .pageMoveBtn-wrap {
-    display: flex;
-    flex-direction: column;
-  }
 
-  .pre-pageBtn,
-  .next-pageBtn {
-    width: 100%;
-    height: 5em;
-    font-size: 1.5em;
-  }
-`;
 
 function RightBar(props) {
   const { reply } = props;
@@ -96,15 +81,8 @@ function RightBar(props) {
       </UserWrap>
 
 
-      {reply ?
-        <ReplyWrap>
-          <div className="pageMoveBtn-wrap">
-            <button className='pre-pageBtn'> <FontAwesomeIcon icon={faCircleArrowLeft} />이전 글</button>
-            <button className='next-pageBtn'> <FontAwesomeIcon icon={faCircleArrowRight} /> 다음 글 </button>
-          </div>
-        </ReplyWrap>      
-      : null}
-
+      
+        
 
       {/* 내가 쓴글 리스트 */}
       <WriteBoardListWrap>
