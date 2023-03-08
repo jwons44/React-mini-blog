@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import PostList from "../list/PostLIst";
 import Button from "../ui/Button";
-import data from '../../data.json';
-import TextInput from "../ui/TextInput";
 import TextTitleInput from "../ui/TextTitleInput";
+import Editor from "./Editor";
 
 const Wrapper = styled.div`
     padding: 16px;
@@ -34,6 +32,11 @@ const Container = styled.div`
     Button {
         margin-right: 10px;
     }
+
+    .ck.ck-editor__editable:not(.ck-editor__nested-editable) {
+  min-height: 400px;
+  margin-bottom: 20px;
+}
 `;
 
 
@@ -55,13 +58,17 @@ function PostWritePage(props) {
                     }}
                 />
 
-                <TextInput
+                {/* <TextInput
                     height={480}
                     value={content}
                     onChange={(event) => {
                         setContent(event.target.value);
                     }}
-                />
+                /> */}
+                <Editor />
+
+
+
 
                 <div className="button-wrap">
                     <Button
@@ -79,6 +86,7 @@ function PostWritePage(props) {
                         }}
                     />
                 </div>
+
             </Container>
         </Wrapper>
     )
