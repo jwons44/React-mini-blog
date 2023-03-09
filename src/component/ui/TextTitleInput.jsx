@@ -9,11 +9,9 @@ const StyledTextarea = styled.textarea`
     font-weight: bold;
     line-height: 1.9em;
     resize: none;
-    border-radius: 0.5em;
+    border-radius: 1em;
     background: #e9ecef;
-    border: none;
-
-    
+    border: none;    
 `;
 
 
@@ -22,9 +20,9 @@ const StyledTextarea = styled.textarea`
   
 
 function TextTitleInput(props) {
-    const { height, value, onChange } = props;
+    const { height, value, onChange, placeholder } = props;
 
-    return <StyledTextarea height={height} value={value} onChange={onChange} placeholder="제목을 입력하세요."/>;
+    return <StyledTextarea height={height} value={value} onChange={onChange} placeholder={placeholder}/>;
 }
 
 export default TextTitleInput;
