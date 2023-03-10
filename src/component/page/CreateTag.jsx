@@ -54,10 +54,11 @@ function CreateTag({ tagname, onChange, onCreate, onKeyDown }) {
                 <input
                     className="tag-input"
                     name="tagname"
-                    placeholder="주요 특징들을 키워드로 입력해주세요."
+                    placeholder="주요 특징들을 키워드로 입력해주세요. 5글자 이하로 입력."
                     onChange={onChange}
                     value={tagname}
                     onKeyDown={(e) => onKeyDown(e)}
+                    maxLength={5}
                 />
                 <button className="add-tagBtn" onClick={onCreate}>
                     <span>추가</span>

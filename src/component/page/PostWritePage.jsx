@@ -114,12 +114,19 @@ function PostWritePage(props) {
         const tag = {
             id: nextId.current, tagname
         }
-        setTags([...tags, tag])
+        if(tags.length <= 4){
+            setTags([...tags, tag])
+        } else {
+            alert("더 이상 입력할 수 없습니다.")
+        }
+        
         setInpus({
             tagname: ''
         })
         console.log(nextId.current);
+        console.log("tags",tags.length);
         nextId.current += 1;
+
     }
     const onRemove = id => {
         setTags(tags.filter(tag => tag.id !== id));
