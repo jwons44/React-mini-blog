@@ -139,7 +139,7 @@ const editorConfiguration = {
         },
     },
 
-    placeholder: "내용을 입력하세요."
+    placeholder: "내용을 입력해주세요."
 };
 
 const Wrapper = styled.div`
@@ -155,6 +155,13 @@ const Wrapper = styled.div`
         border-bottom-left-radius: 2em !important;
         border-bottom-right-radius: 2em !important;
     }
+
+    .ck.ck-editor__editable:not(.ck-editor__nested-editable):focus {
+        border:1px solid #37b24d !important;
+    }
+
+    
+    
 `
 
 function BoardEditor() {

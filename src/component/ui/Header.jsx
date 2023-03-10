@@ -9,7 +9,7 @@ const Wrapper = styled.div`
     position: sticky;
     top: 0;
     background: white;
-    z-index: 1;
+    z-index: 100;
 `;
 
 const HeaderWrap = styled.div`

@@ -16,3 +16,57 @@
 .ck-editor__editable_inline {
   padding: 0 30px !important;
 }
+:root {
+  --ck-color-button-on-color:#37b24d ;
+
+  
+  /* --ck-color-base-foreground: #fafafa;
+  --ck-color-base-background: #fff;
+  --ck-color-base-border: #ccced1;
+  --ck-color-base-action: yellow;
+  --ck-color-base-focus: yellow;
+  --ck-color-base-text: #333;
+  --ck-color-base-active: yellow;
+  --ck-color-base-active-focus: yellow;
+  --ck-color-base-error: #db3700;
+  --ck-color-focus-border-coordinates: 218,81.8%,56.9%;
+  --ck-color-focus-border: hsl(var(--ck-color-focus-border-coordinates));
+  --ck-color-focus-outer-shadow: #cae1fc;
+  --ck-color-focus-disabled-shadow: rgba(3, 4, 6, 0.3);
+  --ck-color-focus-error-shadow: rgba(255,64,31,.3);
+  --ck-color-text: var(--ck-color-base-text);
+  --ck-color-shadow-drop: rgba(0,0,0,.15);
+  --ck-color-shadow-drop-active: rgba(0,0,0,.2);
+  --ck-color-shadow-inner: rgba(0,0,0,.1);
+  --ck-color-button-default-background: transparent;
+  --ck-color-button-default-hover-background: #f0f0f0;
+  --ck-color-button-default-active-background: #f0f0f0;
+  --ck-color-button-default-disabled-background: transparent;
+  --ck-color-button-on-background: #f0f7ff;
+  --ck-color-button-on-hover-background: #dbecff;
+  --ck-color-button-on-active-background: #dbecff;
+  --ck-color-button-on-disabled-background: #f0f2f4;
+  --ck-color-button-action-background: var(--ck-color-base-action);
+  --ck-color-button-action-hover-background: yellow;
+  --ck-color-button-action-active-background: yellow;
+  --ck-color-button-action-disabled-background: yellow;
+  --ck-color-button-action-text: var(--ck-color-base-background);
+  --ck-color-button-save: #008a00;
+  --ck-color-button-cancel: #db3700;
+  --ck-color-switch-button-off-background: #939393;
+  --ck-color-switch-button-off-hover-background: #7d7d7d;
+  --ck-color-switch-button-on-background: var(--ck-color-button-action-background);
+  --ck-color-switch-button-on-hover-background: #4d9d30;
+  --ck-color-switch-button-inner-background: var(--ck-color-base-background);
+  --ck-color-switch-button-inner-shadow: rgba(0,0,0,.1);
+  --ck-color-dropdown-panel-background: var(--ck-color-base-background);
+  --ck-color-dropdown-panel-border: var(--ck-color-base-border);
+  --ck-color-input-background: var(--ck-color-base-background);
+  --ck-color-input-border: var(--ck-color-base-border);
+  --ck-color-input-error-border: var(--ck-color-base-error);
+  --ck-color-input-text: var(--ck-color-base-text);
+  --ck-color-input-disabled-background: #f2f2f2;
+  --ck-color-input-disabled-border: var(--ck-color-base-border);
+  --ck-color-input-disabled-text: #757575;
+  --ck-color-list-background: var(--ck-color-base-background); */
+}
