@@ -16,8 +16,6 @@ const Wrapper = styled.div`
     padding: 16px;
     width: 100%;
     display: flex;
-    /* flex-direction: column; */
-    /* align-items: center; */
     justify-content: center;
 
     .wrap {
@@ -121,7 +119,7 @@ const PageBtnWrap = styled.div`
   }
 
   .pageBtn-content {
-    font-size: 1.2em;
+    font-size: 22px;
   }
   
   .pre-page-content-wrap {
@@ -129,6 +127,9 @@ const PageBtnWrap = styled.div`
     flex-direction: column;
     align-items: flex-start;
     margin-left: 0.5em;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
   }
 
   .next-page-content-wrap {
@@ -136,6 +137,9 @@ const PageBtnWrap = styled.div`
     flex-direction: column;
     align-items: flex-end;
     margin-right: 0.5em;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
   }
 
   .pageBtn-icon {
@@ -155,6 +159,12 @@ function PostViewPage(props) {
     const [comment, setComment] = useState("");
     const [commentModal, setCommentModal] = useState(false);
 
+    const prePost = data.find((item) => {
+        return item.id == postId-1;
+    });
+    const nextPost = data.find((item) => {
+        return item.id > postId;
+    });
     return (
         <Wrapper>
             <div className="wrap">
@@ -164,31 +174,37 @@ function PostViewPage(props) {
                         <UserWrap post={post} />
                         <ContentText>
                             {post.content}
+                            {post.tags ? 
                             <TagList
                                 tags={post.tags}
-                            />
+                            /> : null}
                         </ContentText>
                     </PostContainer>
                     <PageBtnWrap>
                         <div className="pageMoveBtn-wrap">
-                            <button className='pre-pageBtn'>
-                                <div className='pageBtn-icon'>
-                                    <FontAwesomeIcon icon={faCircleArrowLeft} />
-                                </div>
-                                <div className='pre-page-content-wrap'>
-                                    <div className='pageBtn-title'>이전 글</div>
-                                    <div className='pageBtn-content'>title</div>
-                                </div>
-                            </button>
-                            <button className='next-pageBtn'>
-                                <div className='next-page-content-wrap'>
-                                    <div className='pageBtn-title'>다음 글</div>
-                                    <div className='pageBtn-content'>title</div>
-                                </div>
-                                <div className='pageBtn-icon'>
-                                    <FontAwesomeIcon icon={faCircleArrowRight} />
-                                </div>
-                            </button>
+
+                            {prePost ?
+                                <button className='pre-pageBtn'>
+                                    <div className='pageBtn-icon'>
+                                        <FontAwesomeIcon icon={faCircleArrowLeft} />
+                                    </div>
+                                    <div className='pre-page-content-wrap'>
+                                        <div className='pageBtn-title'>이전 글</div>
+                                        <div className='pageBtn-content'>{prePost.title}</div>
+                                    </div>
+                                </button>
+                                : <div></div>}
+                            {nextPost ?
+                                <button className='next-pageBtn'>
+                                    <div className='next-page-content-wrap'>
+                                        <div className='pageBtn-title'>다음 글</div>
+                                        <div className='pageBtn-content'>{nextPost.title}</div>
+                                    </div>
+                                    <div className='pageBtn-icon'>
+                                        <FontAwesomeIcon icon={faCircleArrowRight} />
+                                    </div>
+                                </button> : <div></div>
+                            }
                         </div>
                     </PageBtnWrap>
                     <CommentLabel>

@@ -2,9 +2,9 @@ import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Button from "../ui/Button";
-import BoardEditor from "./BoardEditor";
-import CreateTag from "./CreateTag";
-import CreateTagList from "./CreateTagList";
+import BoardEditor from "../ui/BoardEditor";
+import CreateTag from "../list/CreateTag";
+import CreateTagList from "../list/CreateTagList";
 
 
 const Wrapper = styled.div`

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledTextarea = styled.textarea`
-    width: calc(100% - 32px);
+    width: 100%;
     ${(props) => props.height && `height: ${props.height}px;`};
     border-radius:0.5em;
     padding: 0.5em;
@@ -22,6 +22,9 @@ const StyledTextarea = styled.textarea`
         background-color:gray;
         border-radius:0.5em;
     } */
+    :focus,:active {
+        outline-color: #37b24d;
+    }
 `;
 
 
